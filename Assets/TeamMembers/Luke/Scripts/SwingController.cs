@@ -5,6 +5,7 @@ using UnityEngine;
 public class SwingController : MonoBehaviour
 {
     public float maxTongueLength;
+    public float tongueMoveSpeed;
     public Transform tongue;
     public Transform tongueTip;
     public Transform mouthPos;
@@ -15,15 +16,14 @@ public class SwingController : MonoBehaviour
 
     private void Start()
     {
+        tongueCollisionHandler = tongue.GetComponentInChildren<TongueCollisionHandler>();
         distanceJoint = tongue.GetComponent<DistanceJoint2D>();
         initialRotation = tongueTip.localRotation;
-        tongueCollisionHandler = tongue.GetComponentInChildren<TongueCollisionHandler>();
     }
 
     private void Update()
     {
         HandleInput();
-
     }
 
     private void HandleInput()
@@ -37,9 +37,6 @@ public class SwingController : MonoBehaviour
             {
                 ResetTonguePosition();
             }
-        {
-            
-        }
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -60,9 +57,21 @@ public class SwingController : MonoBehaviour
             direction = direction.normalized * maxTongueLength;
         }
 
-        tongue.localPosition = direction;
-        tongueTip.localPosition = direction.normalized * distance;
+         // Calculate the target position based on the direction and tongue move speed
+        Vector3 targetPosition = mouthPos.position + (direction.normalized * distance * tongueMoveSpeed * Time.deltaTime);
+
+        // Move the tongue towards the target position
+        tongue.position = Vector3.Lerp(tongue.position, targetPosition, tongueMoveSpeed * Time.deltaTime);
+
+        // Calculate the target position for the tongue tip
+        Vector3 targetTipPosition = targetPosition.normalized * distance;
+
+        // Move the tongue tip towards the target position
+        tongueTip.position = Vector3.Lerp(tongueTip.position, targetTipPosition, tongueMoveSpeed * Time.deltaTime);
         tongueTip.localRotation = initialRotation;
+
+        // Debug linecast to visualize the direction
+        Debug.DrawLine(mouthPos.position, targetPosition, Color.green);
     }
 
     private void AdjustDistanceJoint()
