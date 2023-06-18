@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwingController : MonoBehaviour
+public class NewSwingController : MonoBehaviour
 {
     public float maxTongueLength;
     public float tongueMoveSpeed;
@@ -12,11 +12,11 @@ public class SwingController : MonoBehaviour
 
     private DistanceJoint2D distanceJoint;
     private Quaternion initialRotation;
-    private TongueCollisionHandler tongueCollisionHandler;
+    private NewTongueCollisionHandler tongueCollisionHandler;
 
     private void Start()
     {
-        tongueCollisionHandler = tongue.GetComponentInChildren<TongueCollisionHandler>();
+        tongueCollisionHandler = tongue.GetComponentInChildren<NewTongueCollisionHandler>();
         distanceJoint = tongue.GetComponent<DistanceJoint2D>();
         initialRotation = tongueTip.localRotation;
     }
@@ -91,4 +91,10 @@ public class SwingController : MonoBehaviour
         distanceJoint.distance = 0f;
     }
 }
+
+
+
+
+
+
 
