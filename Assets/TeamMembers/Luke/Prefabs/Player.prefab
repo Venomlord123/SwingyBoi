@@ -254,7 +254,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e192f5cd0bf8a47b13828f62d2c1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingForce: 15
+  maxGrappleDistance: 0
+  currentGrappleDistance: 0
+  grappleSpeed: 20
+  reelForce: 1
   tension: 0.5
   grappleableLayer:
     serializedVersion: 2

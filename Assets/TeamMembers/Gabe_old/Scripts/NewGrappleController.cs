@@ -121,6 +121,9 @@ public class NewGrappleController : MonoBehaviour
         Debug.DrawLine(transform.position, grapplePoint, Color.red);
     }
 
+    /// <summary>
+    /// I would suggest having this as a reel up the tongue only in the tongue direction and have the jump code separate
+    /// </summary>
     private void Reel()
     {
         if (lastScreenSpaceMousePoint != Input.mousePosition) // should drop decimals for rounding, but whatever

@@ -4,32 +4,29 @@ using UnityEngine;
 
 public class GrappleController : MonoBehaviour
 {
-    public float maxGrappleDistance = 15f;
-    public float currentGrappleDistance;
-    public float swingForce = 1f;
-    public float tension = 1f;
+    public float maxGrappleDistance;
+    public float grappleSpeed = 20f;
+    public float reelForce = 1f;
+    public float swingForce;
+    public float tension = 0f;
     public LayerMask grappleableLayer;
 
-    private float jumpCharge = 0f;
+    private bool isGrappling = false;
     private Rigidbody2D rb;
     private Vector2 grapplePoint;
     private Vector2 grappleDir;
     private Vector2 mouseDir;
-    private Vector2 swingForceDir;
-    private Vector3 screenSpaceGrapplePoint;   
-    private Vector3 lastScreenSpaceMousePoint;   
+    private Vector2 fixedMousePos;
+    private Vector2 currentMousPos; 
+    private Vector2 onClickMousePos;
+    private DistanceJoint2D dj;
     
-
-    private bool isGrappling = false;
-    private bool jumpIsCharging = false;
     private const int toungeInputButton = 0;
-    private const int jumpInputButton = 1;
     
-
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        // sr = GetComponent<SpriteRenderer>();
+        dj = GetComponent<DistanceJoint2D>();
     }
 
     private void Update()
@@ -61,64 +58,62 @@ public class GrappleController : MonoBehaviour
             Swing();
             Reel();
         }
-
-        //this will need to be moved into a new jump script
-        if (Input.GetMouseButton(jumpInputButton))
-            Jump();
-
-        if (jumpIsCharging && Input.GetMouseButtonUp(jumpInputButton))
-            ReleaseJump();
     }
 
     //This will need to be more of an extension of the tongue hitting the collider rather than an instant point and the tongue should have a collidable rigidbody that the length of the tongue can interact with
     private void StartGrapple()
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, mousePos - (Vector2)transform.position, maxGrappleDistance, grappleableLayer);
-        
+        //visual representation (Need to save fixedMousePos for direction of swing visual)
+        fixedMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, fixedMousePos - (Vector2)transform.position, maxGrappleDistance, grappleableLayer);
+
         if (hit.collider != null)
         {
             isGrappling = true;
+            //Raycast tongue collision point
             grapplePoint = hit.point;
-            //rb.gravityScale = 0f;
-            //rb.velocity = Vector2.zero;
+            //distanceJoint2D enabling, anchor point and distance set
+            dj.connectedAnchor = grapplePoint;
+            dj.distance = hit.distance;
+            dj.enabled = true;
+            //To get mousepos on click
+            onClickMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            //save current mouse screen-space position 
             // Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //copilot did this
             // stick a little cursor where the tounge is attached (for ease of showing vector of mouse displacement relative to tounge grapple point)
             //save the current tounge length - it shouldn't change unless the mouse moves (give or take a little springyness)
         }
-
-        screenSpaceGrapplePoint = Input.mousePosition;
-        lastScreenSpaceMousePoint = screenSpaceGrapplePoint;
-        //Debug.Log($"Grapple initated: {Input.mousePosition}");
-
-    }
+    }    
 
     private void StopGrapple()
     {
         isGrappling = false;
-        currentGrappleDistance = 0f;
-        //rb.gravityScale = 1f;
-        // Debug.Log(Input.mousePosition);
+        dj.distance = 0f;
+        dj.enabled = false;
     }
 
     private void Swing()
     {
         grappleDir = (grapplePoint - (Vector2)transform.position).normalized;
         mouseDir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
-        //Current distance of the grapple
-        currentGrappleDistance = transform.position.magnitude - grapplePoint.magnitude;
+        //save current mouse screen-space position 
+        currentMousPos = Input.mousePosition;
+        //Getting the direction of swing relative to fixedMousePos and the currentMousePos
+        Vector2 swingDir = currentMousPos - fixedMousePos;
+        //Mouse input direction of force needs adjustment as it dependson mousePostion instead of on click mouse position
+        rb.AddForce(swingDir * swingForce);           
 
         //limiting our ridigbody moving past the tongue max grapple distance, will need to change it so the added max length of the tongue adds a reverse force for tension instead of making rb.force zero
-        if (currentGrappleDistance >= maxGrappleDistance)
-        {
-            rb.velocity = Vector2.zero;
-            rb.angularVelocity = 0f;
-        }
+        //if (dj.distance >= maxGrappleDistance)
+        //{
+        //    //rb.velocity = Vector2.zero;
+        //    //rb.angularVelocity = 0f;
+        //}
 
         // Draw a debug line to visualize the grapple direction and length
-        Debug.DrawLine(transform.position, grapplePoint, Color.red);
+        Debug.DrawLine(transform.position, grapplePoint, Color.yellow);
+        //Visual debug of mousePositions
+        Debug.DrawLine(Camera.main.ScreenToWorldPoint(currentMousPos), onClickMousePos, Color.red);
     }
 
     /// <summary>
@@ -126,22 +121,23 @@ public class GrappleController : MonoBehaviour
     /// </summary>
     private void Reel()
     {
-        if (lastScreenSpaceMousePoint != Input.mousePosition) // should drop decimals for rounding, but whatever
-            {
-                lastScreenSpaceMousePoint = Input.mousePosition;
-                //Debug.Log($"Mouse position difference vector: {lastScreenSpaceMousePoint - screenSpaceGrapplePoint}");             
-            }
+        if (fixedMousePos != currentMousPos) // should drop decimals for rounding, but whatever
+        {
+            fixedMousePos = Input.mousePosition;
+            //Debug.Log($"Mouse position difference vector: {lastScreenSpaceMousePoint - screenSpaceGrapplePoint}");             
+        }
 
         // Debug.DrawLine(screenSpaceGrapplePoint, lastScreenSpaceMousePoint, Color.blue); // will need to use something other than debug.drawline
         
-        if (currentGrappleDistance <= maxGrappleDistance)
+        //force achor to not be able to reel past the maxGrappleDistance
+        if (dj.distance <= maxGrappleDistance)
         {
-            swingForceDir = (screenSpaceGrapplePoint - lastScreenSpaceMousePoint).normalized;
-            rb.AddForce(swingForceDir * swingForce, ForceMode2D.Force);
+            //swingForceDir = (screenSpaceGrapplePoint - lastScreenSpaceMousePoint).normalized;
+            
         }
     }
 
-    //apply tension force opposite to grappledirection
+    //apply tension force opposite to grappledirection possibly using the other distancejoint2d connected from body to tongue
     //private void Tension()
     //{
     //    if(currentGrappleDistance > maxGrappleDistance)
@@ -149,36 +145,4 @@ public class GrappleController : MonoBehaviour
 
     //    }
     //}
-
-    /// <summary>
-    /// This jump code should be separated into another script
-    /// </summary>
-    private void Jump()
-    {
-        if (!jumpIsCharging)
-        {
-            jumpIsCharging = true;
-            Debug.Log("Jump charging started");
-        }
-
-        if (jumpCharge < 10f)
-        {
-            jumpCharge += Time.deltaTime;
-            Debug.Log($"Jump charge: {jumpCharge}");
-        }
-        else 
-        {
-            Debug.Log("Jump charge maxed!");
-        }
-    }
-
-
-    private void ReleaseJump()
-    {
-        mouseDir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
-        jumpIsCharging = false;
-        rb.AddForce(mouseDir * jumpCharge * 1000f, ForceMode2D.Force);
-        Debug.Log($"Jump Released. Force: {jumpCharge}");
-        jumpCharge = 0f;
-    }
 }
