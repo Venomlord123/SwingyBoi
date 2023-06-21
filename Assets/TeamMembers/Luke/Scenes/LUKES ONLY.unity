@@ -921,30 +921,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &566051508 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2809577924822278693, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-  m_PrefabInstance: {fileID: 2809577925361757062}
-  m_PrefabAsset: {fileID: 0}
---- !u!232 &566051512
-DistanceJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566051508}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 1601029267}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_AutoConfigureDistance: 1
-  m_Distance: 0.39
-  m_MaxDistanceOnly: 1
 --- !u!1 &577966555
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,11 +1985,6 @@ Transform:
   m_Father: {fileID: 1837027474}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1601029267 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 2809577924498396529, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-  m_PrefabInstance: {fileID: 2809577925361757062}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1673309725
 GameObject:
   m_ObjectHideFlags: 0
@@ -2247,50 +2218,6 @@ PrefabInstance:
     - target: {fileID: 2809577924423221382, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809577924498396528, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809577924498396528, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-      propertyPath: m_EnableCollision
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809577924498396528, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-      propertyPath: m_MaxDistanceOnly
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809577924498396528, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809577924498396528, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-      propertyPath: m_ConnectedRigidBody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809577924498396529, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-      propertyPath: m_Mass
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809577924498396529, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809577924498396531, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809577924498396542, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-      propertyPath: swingForce
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809577924498396542, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-      propertyPath: maxGrappleDistance
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809577924561556464, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}

@@ -5,23 +5,21 @@ using UnityEngine;
 public class GrappleController : MonoBehaviour
 {
     public float maxGrappleDistance;
-    public float grappleSpeed = 20f;
-    public float reelForce = 1f;
-    public float swingForce;
-    public float tension = 0f;
+    public float reelForce;
+    public float swingForce;    
     public LayerMask grappleableLayer;
 
-    private bool isGrappling = false;
-    private Rigidbody2D rb;
+    private bool isGrappling = false;    
     private Vector2 grapplePoint;
-    private Vector2 grappleDir;
-    private Vector2 mouseDir;
     private Vector2 fixedMousePos;
-    private Vector2 currentMousPos; 
+    private Vector2 currentMousePos; 
     private Vector2 onClickMousePos;
+    private Rigidbody2D rb;
     private DistanceJoint2D dj;
-    
+
+    //Mouse input
     private const int toungeInputButton = 0;
+    private const int reelInputButton = 1;
     
     private void Start()
     {
@@ -56,14 +54,18 @@ public class GrappleController : MonoBehaviour
         if (isGrappling)
         {
             Swing();
-            Reel();
+
+            if(Input.GetMouseButton(reelInputButton))
+            {
+                Reel();
+            }
         }
     }
 
     //This will need to be more of an extension of the tongue hitting the collider rather than an instant point and the tongue should have a collidable rigidbody that the length of the tongue can interact with
     private void StartGrapple()
     {
-        //visual representation (Need to save fixedMousePos for direction of swing visual)
+        //Need to save this position for Swing() and visual representation
         fixedMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, fixedMousePos - (Vector2)transform.position, maxGrappleDistance, grappleableLayer);
 
@@ -79,9 +81,7 @@ public class GrappleController : MonoBehaviour
             //To get mousepos on click
             onClickMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            // Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //copilot did this
             // stick a little cursor where the tounge is attached (for ease of showing vector of mouse displacement relative to tounge grapple point)
-            //save the current tounge length - it shouldn't change unless the mouse moves (give or take a little springyness)
         }
     }    
 
@@ -94,53 +94,51 @@ public class GrappleController : MonoBehaviour
 
     private void Swing()
     {
-        grappleDir = (grapplePoint - (Vector2)transform.position).normalized;
-        mouseDir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
         //save current mouse screen-space position 
-        currentMousPos = Input.mousePosition;
+        currentMousePos = Input.mousePosition;
         //Getting the direction of swing relative to fixedMousePos and the currentMousePos
-        Vector2 swingDir = currentMousPos - fixedMousePos;
+        Vector2 swingDir = currentMousePos - fixedMousePos;
         //Mouse input direction of force needs adjustment as it dependson mousePostion instead of on click mouse position
-        rb.AddForce(swingDir * swingForce);           
+        rb.AddForce(swingDir * swingForce);
 
-        //limiting our ridigbody moving past the tongue max grapple distance, will need to change it so the added max length of the tongue adds a reverse force for tension instead of making rb.force zero
-        //if (dj.distance >= maxGrappleDistance)
-        //{
-        //    //rb.velocity = Vector2.zero;
-        //    //rb.angularVelocity = 0f;
-        //}
+        //This is for the swing to work properly in the correct direction a little bit weird but works
+        if (fixedMousePos != currentMousePos)
+        {
+            fixedMousePos = currentMousePos;             
+        }
 
         // Draw a debug line to visualize the grapple direction and length
         Debug.DrawLine(transform.position, grapplePoint, Color.yellow);
         //Visual debug of mousePositions
-        Debug.DrawLine(Camera.main.ScreenToWorldPoint(currentMousPos), onClickMousePos, Color.red);
+        Debug.DrawLine(Camera.main.ScreenToWorldPoint(currentMousePos), onClickMousePos, Color.red);
     }
 
     /// <summary>
-    /// I would suggest having this as a reel up the tongue only in the tongue direction and have the jump code separate
+    /// We need to have the body line up with the anchor poistion on update so the player can reel faster
     /// </summary>
     private void Reel()
     {
-        if (fixedMousePos != currentMousPos) // should drop decimals for rounding, but whatever
+        if(onClickMousePos != (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition))
         {
-            fixedMousePos = Input.mousePosition;
-            //Debug.Log($"Mouse position difference vector: {lastScreenSpaceMousePoint - screenSpaceGrapplePoint}");             
-        }
-
-        // Debug.DrawLine(screenSpaceGrapplePoint, lastScreenSpaceMousePoint, Color.blue); // will need to use something other than debug.drawline
-        
-        //force achor to not be able to reel past the maxGrappleDistance
-        if (dj.distance <= maxGrappleDistance)
-        {
-            //swingForceDir = (screenSpaceGrapplePoint - lastScreenSpaceMousePoint).normalized;
-            
+            //force achor to not be able to reel past the maxGrappleDistance
+            if (onClickMousePos.y > Camera.main.ScreenToWorldPoint(Input.mousePosition).y && dj.distance <= maxGrappleDistance)
+            {
+                dj.distance += Time.deltaTime * reelForce;
+                Debug.Log(onClickMousePos.y);
+            }
+            //no more reel force is applied if the anchor points are too close
+            if (onClickMousePos.y < Camera.main.ScreenToWorldPoint(Input.mousePosition).y && dj.distance >= .1f)
+            {
+                dj.distance -= Time.deltaTime * reelForce;
+                Debug.Log(onClickMousePos.y);
+            }
         }
     }
 
     //apply tension force opposite to grappledirection possibly using the other distancejoint2d connected from body to tongue
     //private void Tension()
     //{
-    //    if(currentGrappleDistance > maxGrappleDistance)
+    //    if(currentGrappleDistance > tensionLength)
     //    {
 
     //    }
