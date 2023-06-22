@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &126650813 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2809577924822278690, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+  m_PrefabInstance: {fileID: 2809577925361757062}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &361046333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,6 +2176,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 566051512, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 566051512, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: m_AutoConfigureDistance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2809577924423221380, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2219,5 +2232,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2809577924498396528, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: m_AutoConfigureDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809577924498396542, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: reelForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809577924498396542, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: bodyTransform
+      value: 
+      objectReference: {fileID: 126650813}
+    - target: {fileID: 2809577924498396542, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: invertedReelControls
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2809577925332579592, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
