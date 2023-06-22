@@ -41,6 +41,7 @@ namespace Jono
 		{
 			//charge up over time to a max value
 			jumpForce += jumpTime * Time.deltaTime;
+			//clamp the jump force to a max value
 			if (jumpForce >= maxJump)
 			{
 				jumpForce = maxJump;
@@ -50,10 +51,15 @@ namespace Jono
 		void ReleaseJump()
 		{
 			Debug.DrawLine(transform.position, cam.ScreenToWorldPoint(mousePos), Color.blue);
+
 			Debug.Log("The jump force is " + jumpForce);
+			//check the direction of the jump
 			Vector3 directionCalc = cam.ScreenToWorldPoint(mousePos) - transform.position;
+			//add the jump force to the direction of the jump
 			directionCalc = directionCalc.normalized * jumpForce;
+			//bingo boingo jumpo
 			rb.AddForce(directionCalc, ForceMode.Impulse);
+			//reset the jump force
 			jumpForce = 0;
 		}
 	}
