@@ -1551,7 +1551,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb078d7222fc2b648b63acb6a44f3cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grappleDistance: 100
+  maxGrappleDistance: 15
+  currentGrappleDistance: 0
   swingForce: 15
   tension: 0.5
   grappleableLayer:
@@ -2207,7 +2208,7 @@ GameObject:
   - component: {fileID: 1837027474}
   m_Layer: 6
   m_Name: Environment
-  m_TagString: StickySurface
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
