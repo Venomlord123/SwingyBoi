@@ -2129,7 +2129,7 @@ GameObject:
   - component: {fileID: 1837027474}
   m_Layer: 6
   m_Name: Environment
-  m_TagString: StickySurface
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
