@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &126650813 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2809577924822278690, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-  m_PrefabInstance: {fileID: 2809577925361757062}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &361046333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,13 +2171,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 566051512, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 566051512, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-      propertyPath: m_AutoConfigureDistance
-      value: 0
+    - target: {fileID: 2809577924342129082, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: m_Name
+      value: MouthPos
       objectReference: {fileID: 0}
     - target: {fileID: 2809577924423221380, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
       propertyPath: m_RootOrder
@@ -2233,21 +2224,48 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2809577924498396528, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: m_MaxDistanceOnly
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809577924498396528, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
       propertyPath: m_AutoConfigureDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809577924498396528, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: m_AutoConfigureConnectedAnchor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809577924498396529, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809577924498396529, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809577924498396529, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2809577924498396542, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
       propertyPath: reelForce
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 2809577924498396542, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-      propertyPath: bodyTransform
-      value: 
-      objectReference: {fileID: 126650813}
-    - target: {fileID: 2809577924498396542, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
-      propertyPath: invertedReelControls
+    - target: {fileID: 2809577924822278689, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: m_Radius
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809577925332579594, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: m_Name
+      value: Frog Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809577926308409807, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809577926308409807, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2809577925332579592, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}

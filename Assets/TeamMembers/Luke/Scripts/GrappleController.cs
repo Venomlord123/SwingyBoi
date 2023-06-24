@@ -16,14 +16,17 @@ namespace Luke
         [Tooltip("The power of force at which the player can move the mouse whilst grappling to gain momentum")]
         public float swingForce;
         [Tooltip ("The speed at which the player will move up and down the tongue")]
-        public float reelForce;        
+        public float reelForce;
         [Space]
+        [Header("FOR VIEWING ONLY")]
+        public bool isGrappling = false;
+        public bool isReeling = false;
+        [Space]
+        [Header ("REFRENCES")]
         [Tooltip("The Layer at which the tongue is able to grapple")]
         public LayerMask grappleableLayer;
 
         //In code handeling variables only
-        private bool isGrappling = false;
-        //private Vector2 tongueTransformPos;        
         private Vector2 grapplePoint;
         private Vector2 fixedMousePos;
         private Vector2 currentMousePos;
@@ -43,6 +46,7 @@ namespace Luke
 
         private void Update()
         {
+            //Controls and condition checks
             HandleInput();
         }
 
@@ -73,6 +77,10 @@ namespace Luke
                 if (Input.GetMouseButton(reelInputButton))
                 {
                     Reel();
+                }
+                if (Input.GetMouseButtonUp(reelInputButton))
+                {
+                    ReelingStop();
                 }
             }
         }
@@ -113,8 +121,16 @@ namespace Luke
             currentMousePos = Input.mousePosition;
             //Getting the direction of swing relative to fixedMousePos and the currentMousePos
             Vector2 swingDir = currentMousePos - fixedMousePos;
-            //Mouse input direction of force needs adjustment as it dependson mousePostion instead of on click mouse position
-            rb.AddForce(swingDir * swingForce);
+            //Mouse input direction of force needs adjustment as it depends on mousePostion instead of on click mouse position
+            rb.AddForce((swingDir * swingForce) * Time.deltaTime);
+            
+            ///////////BUG
+            ///////////To adjust the body to the anchor position swinging (HACKY problem is it doesn't account for swingforce)
+            ///////////BUG
+            if(isReeling)
+            {
+                rb.AddForce(-((grapplePoint - (Vector2)transform.position) * reelForce));
+            }
 
             //This is for the swing to work properly in the correct direction a little bit weird but works
             if (fixedMousePos != currentMousePos)
@@ -133,35 +149,64 @@ namespace Luke
         /// </summary>
         private void Reel()
         {
+            isReeling = true;
             //Current mouse position following camera game space
             Vector2 reelMouseposition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            if (onClickMousePos != reelMouseposition)
-            {
-                //Using this to set to the body to the current anchor position while reeling (Bug is that the achor is too fast for the body to catch up while reeling)                        
-                /*tongueTransformPos.y = dj.anchor.y;
-                tongueTransformPos.x = dj.anchor.x;*/
-                
-                //force achor to not be able to reel past the maxGrappleDistance
-                if (dj.distance <= maxGrappleDistance && dj.distance >= .1f)
+            if (onClickMousePos != reelMouseposition && dj.distance <= maxGrappleDistance && dj.distance >= 0f)
+            {                
+                //Non Inverted reel
+                if (transform.position.y < onClickMousePos.y)
                 {
-                    if (onClickMousePos.y > reelMouseposition.y && !invertedReelControls)
+                    if (onClickMousePos.y > reelMouseposition.y && !invertedReelControls || onClickMousePos.y < reelMouseposition.y && invertedReelControls)
                     {
                         dj.distance += Time.deltaTime * reelForce;
                     }
-                    if (onClickMousePos.y > reelMouseposition.y && invertedReelControls)
-                    {
-                        dj.distance -= Time.deltaTime * reelForce;
-                    }
-                    if (onClickMousePos.y < reelMouseposition.y && invertedReelControls)
-                    {
-                        dj.distance += Time.deltaTime * reelForce;
-                    }
-                    if (onClickMousePos.y < reelMouseposition.y && !invertedReelControls)
+
+                    if (onClickMousePos.y >= reelMouseposition.y && invertedReelControls || onClickMousePos.y <= reelMouseposition.y && !invertedReelControls)
                     {
                         dj.distance -= Time.deltaTime * reelForce;
                     }
                 }
+
+                //Inverted reel
+                else
+                {
+                    if (onClickMousePos.y >= reelMouseposition.y && !invertedReelControls || onClickMousePos.y <= reelMouseposition.y && invertedReelControls)
+                    {
+                        dj.distance -= Time.deltaTime * reelForce;
+                    }
+
+                    if (onClickMousePos.y > reelMouseposition.y && invertedReelControls || onClickMousePos.y < reelMouseposition.y && !invertedReelControls)
+                    {
+                        dj.distance += Time.deltaTime * reelForce;
+                    }
+                }
+            }
+            //Making sure we keep our positions in correct lengths of tongue
+            if (dj.distance > maxGrappleDistance)
+            {
+                dj.distance = maxGrappleDistance;
+            }
+
+            if (dj.distance < 0f)
+            {
+                dj.distance = 0f;
+            }
+        }
+        private void ReelingStop()
+        {
+            isReeling = false;
+
+            //Making sure we keep our positions in correct lengths of tongue
+            if (dj.distance > maxGrappleDistance)
+            {
+                dj.distance = maxGrappleDistance;
+            }
+
+            if (dj.distance < 0f)
+            {
+                dj.distance = 0f;
             }
         }
     }
