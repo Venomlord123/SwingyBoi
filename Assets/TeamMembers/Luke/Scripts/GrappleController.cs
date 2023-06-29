@@ -7,10 +7,10 @@ namespace Luke
     public class GrappleController : MonoBehaviour
     {
         //Adjustable variables
-        [Header ("ADJUSTABLE TONGUE VARIABLES"), Space]
+        [Header ("CONTROLS"), Space]
         [Tooltip ("While inverted true the player will reel up towards the tongue if the current mouse position is above grapple click position and vice versa")]
         public bool invertedReelControls = false;
-        [Space]
+        [Header("ADJUSTABLE TONGUE VARIABLES"), Space]
         [Tooltip ("Max grapple length the tongue can reach from the tongue's current position")]
         public float maxGrappleDistance;
         [Tooltip("The power of force at which the player can move the mouse whilst grappling to gain momentum")]
@@ -123,11 +123,9 @@ namespace Luke
             Vector2 swingDir = currentMousePos - fixedMousePos;
             //Mouse input direction of force needs adjustment as it depends on mousePostion instead of on click mouse position
             rb.AddForce((swingDir * swingForce) * Time.deltaTime);
-            
-            ///////////BUG
-            ///////////To adjust the body to the anchor position swinging (HACKY problem is it doesn't account for swingforce)
-            ///////////BUG
-            if(isReeling)
+                       
+            ///////////To adjust the body to the anchor position swinging (I think this can be done better but not sure how yet)            
+            if(isReeling && dj.distance > 0f || isReeling && dj.distance < maxGrappleDistance)
             {
                 rb.AddForce(-((grapplePoint - (Vector2)transform.position) * reelForce));
             }

@@ -2236,8 +2236,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2809577924498396529, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809577924498396529, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
       propertyPath: m_AngularDrag
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2809577924498396529, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
       propertyPath: m_Constraints
@@ -2250,6 +2254,14 @@ PrefabInstance:
     - target: {fileID: 2809577924498396542, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
       propertyPath: reelForce
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809577924498396542, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: swingForce
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809577924498396542, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
+      propertyPath: invertedReelControls
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2809577924822278689, guid: 41a0429d2d47e8b49bc240726d2c963b, type: 3}
       propertyPath: m_Radius
