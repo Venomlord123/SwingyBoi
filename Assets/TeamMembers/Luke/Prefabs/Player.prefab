@@ -148,8 +148,9 @@ GameObject:
   - component: {fileID: 2809577924498396529}
   - component: {fileID: 2809577924498396528}
   - component: {fileID: 2809577924498396542}
+  - component: {fileID: 1035077932}
   m_Layer: 0
-  m_Name: Tongue
+  m_Name: Tongue (Logic)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,13 +187,13 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.1
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!232 &2809577924498396528
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -226,11 +227,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invertedReelControls: 1
   maxGrappleDistance: 12
-  swingForce: 0.35
-  reelForce: 10
+  swingForce: 25
+  reelForce: 8
+  isGrappling: 0
+  isReeling: 0
   grappleableLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &1035077932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809577924498396530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac48fac2c1ae7474eb22e02fdc4509bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mousePos: {x: 0, y: 0, z: 0}
+  cam: {fileID: 2809577924292113164}
+  currentJumpForce: 0
+  maxJump: 25
+  jumpTime: 5.5
+  jumpPowerMultiplier: 50
 --- !u!1 &2809577924561556466
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +384,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.45
 --- !u!1 &2809577924857076698
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,7 +479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2809577925332579595}
   m_Layer: 0
-  m_Name: Swing Controller
+  m_Name: Frog Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -505,7 +526,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2809577926308409806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.382, y: 0, z: 0}
+  m_LocalPosition: {x: 0.4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
