@@ -9,6 +9,7 @@ namespace Jono
 		public Vector3 mousePos;
 		public Camera cam;
 
+		public bool chargingJump;
 		public float jumpForce = 0f;
 		public float maxJump = 25f;
 		public float jumpTime = 5.5f;
@@ -18,6 +19,7 @@ namespace Jono
 		private void Awake()
 		{
 			rb = GetComponent<Rigidbody>();
+			chargingJump = false;
 		}
 
 		// Update is called once per frame
@@ -40,6 +42,7 @@ namespace Jono
 		void ChargeJump()
 		{
 			//charge up over time to a max value
+			chargingJump = true;
 			jumpForce += jumpTime * Time.deltaTime;
 			//clamp the jump force to a max value
 			if (jumpForce >= maxJump)
@@ -49,9 +52,8 @@ namespace Jono
 		}
 
 		void ReleaseJump()
-		{
-			Debug.DrawLine(transform.position, cam.ScreenToWorldPoint(mousePos), Color.blue);
-
+		{			
+			chargingJump = false;
 			Debug.Log("The jump force is " + jumpForce);
 			//check the direction of the jump
 			Vector3 directionCalc = cam.ScreenToWorldPoint(mousePos) - transform.position;
@@ -61,6 +63,13 @@ namespace Jono
 			rb.AddForce(directionCalc, ForceMode.Impulse);
 			//reset the jump force
 			jumpForce = 0;
+		}
+
+		private void OnDrawGizmos()
+		{
+			Debug.DrawLine(transform.position, cam.ScreenToViewportPoint(mousePos), Color.blue);
+			Debug.DrawLine(transform.position, cam.ViewportToWorldPoint(new Vector3(mousePos.x,mousePos.y,0)), Color.red);
+			
 		}
 	}
 }
