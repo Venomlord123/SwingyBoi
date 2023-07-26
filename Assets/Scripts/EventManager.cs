@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EventManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static event Action PostDamageEvent;
+
+    private void OnEnable()
     {
-        
+        Health.DamageEvent += Health_DamageEvent;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        Health.DamageEvent -= Health_DamageEvent;
+    }
+
+    private void Health_DamageEvent()
+    {
+        PostDamageEvent?.Invoke();
+        Debug.Log("EventManager damage");
     }
 }
