@@ -20,6 +20,7 @@ namespace Jono
 		{
 			rb = GetComponent<Rigidbody>();
 			chargingJump = false;
+			DontDestroyOnLoad(this.gameObject);
 		}
 
 		// Update is called once per frame
