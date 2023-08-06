@@ -6,29 +6,28 @@ using UnityEngine.SceneManagement;
 
 public class LoadingManager : MonoBehaviour
 {
-	//public static LoadingManager instance;
-	public List<string> playableLevelsID;
-
+	[Tooltip("This is a list of gameplay levels. List the name of levels in the intended order of play")]
+	public List<string> playableLevels;
+	public int completedLevels;
 
 	void Awake()
 	{
-		// = this;
+		completedLevels = 0;
 		DontDestroyOnLoad(this.gameObject);
 	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
-
 	public void StartGame()
 	{
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene(playableLevels[completedLevels]);
 	}
 
-	public void NextLevel(int nextLevel, LoadSceneMode mode)
+	public void QuitToMenu()
 	{
-		SceneManager.LoadScene(nextLevel, mode);
+		SceneManager.LoadScene("MainMenuScene");		
+	}
+
+	public void NextLevel()
+	{
+		completedLevels++;
+		SceneManager.LoadScene(playableLevels[completedLevels]);
 	}
 }

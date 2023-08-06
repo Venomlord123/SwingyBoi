@@ -849,5 +849,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6271869744838879837, guid: d26a8c6caf6e5314995becc12169d76f, type: 3}
+      propertyPath: playableLevels.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271869744838879837, guid: d26a8c6caf6e5314995becc12169d76f, type: 3}
+      propertyPath: playableLevels.Array.data[0]
+      value: Jump_Test
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271869744838879837, guid: d26a8c6caf6e5314995becc12169d76f, type: 3}
+      propertyPath: playableLevels.Array.data[1]
+      value: Second
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d26a8c6caf6e5314995becc12169d76f, type: 3}

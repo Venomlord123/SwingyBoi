@@ -8,6 +8,7 @@ public class Goal : MonoBehaviour
 {
     public GameObject loader;
     public int nextLevel;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -21,7 +22,8 @@ public class Goal : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             
-           loader.GetComponent<LoadingManager>().NextLevel(nextLevel, LoadSceneMode.Single);
+
+			loader.GetComponent<LoadingManager>().NextLevel();
             
         }
     }
