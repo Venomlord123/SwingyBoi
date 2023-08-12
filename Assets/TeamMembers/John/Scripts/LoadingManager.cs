@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class LoadingManager : MonoBehaviour
 {
@@ -10,7 +11,21 @@ public class LoadingManager : MonoBehaviour
 	public List<string> playableLevels;
 	public int completedLevels;
 
-	void Awake()
+
+
+    //Updated to use events
+    //TODO make sure this works later
+    private void OnEnable()
+    {
+		EventManager.PostLevelEndEvent += NextLevel;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.PostLevelEndEvent -= NextLevel;
+    }
+
+    void Awake()
 	{
 		completedLevels = 0;
 		DontDestroyOnLoad(this.gameObject);

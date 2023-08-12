@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TeamMembers/John/Scene/Second.unity
     guid: 585f6ff7ba8c68d428d2ba6701a1afe1
+  - enabled: 1
+    path: Assets/TeamMembers/Zach/Scenes/Movement Tests.unity
+    guid: f4242ab50f6bc2741a0e7ca4d45452a9
+  - enabled: 1
+    path: Assets/TeamMembers/Zach/Scenes/Test for loading.unity
+    guid: a4160ccee18d4eb4ea59d9db23a868c5
   m_configObjects: {}

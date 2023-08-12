@@ -13,10 +13,11 @@ public class DontDestroy : MonoBehaviour
             {
                 if (Object.FindObjectsOfType<DontDestroy>()[i].name == gameObject.name)
                 {
-                    DontDestroyOnLoad(gameObject);
+                    Destroy(gameObject);
                 }
             }
-        }   
+        }
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
