@@ -289,6 +289,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2809577924822278693, guid: 380c2c200e2e14c47946fe3b318c80d3, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 380c2c200e2e14c47946fe3b318c80d3, type: 3}
 --- !u!1 &747590099
@@ -322,7 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95cd5d9a07a786a418dc285182359c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: 0
+  nextLevel: 1
 --- !u!61 &747590101
 BoxCollider2D:
   m_ObjectHideFlags: 0

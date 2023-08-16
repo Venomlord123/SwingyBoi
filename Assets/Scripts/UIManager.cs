@@ -5,6 +5,11 @@ using System;
 
 public class UIManager : MonoBehaviour
 {
+
+    public Canvas CompleteLevel;
+    public Canvas PauseMenu;
+    public Canvas MainMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +25,22 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         EventManager.PostDamageEvent += LoseHealth;
+        EventManager.PostLevelEndEvent += CompleteLevelUI;
     }
+
+    
 
     private void OnDisable()
     {
         EventManager.PostDamageEvent -= LoseHealth;
+        EventManager.PostLevelEndEvent -= CompleteLevelUI;
     }
+
+    private void CompleteLevelUI()
+    {
+        CompleteLevel.gameObject.SetActive(true);
+    }
+
 
     public void LoseHealth()
     {
