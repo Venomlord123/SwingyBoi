@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         EventManager.PostDamageEvent += LoseHealth;
-        EventManager.PostLevelEndEvent += CompleteLevelUI;
+        EventManager.onGoalCheck += CompleteLevelUI;
     }
 
     
@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour
     private void OnDisable()
     {
         EventManager.PostDamageEvent -= LoseHealth;
-        EventManager.PostLevelEndEvent -= CompleteLevelUI;
+        EventManager.onGoalCheck -= CompleteLevelUI;
     }
 
     private void CompleteLevelUI()

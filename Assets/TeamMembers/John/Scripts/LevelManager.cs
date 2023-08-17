@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = spawnPos.position;
-        player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        player.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     // Update is called once per frame

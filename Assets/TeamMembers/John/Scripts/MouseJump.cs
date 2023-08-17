@@ -28,7 +28,6 @@ namespace Jono
 		{
 			if (Input.GetMouseButton(0))
 			{
-				Debug.Log("Mouse is held");
 				ChargeJump();
 			}
 			mousePos = Input.mousePosition;
@@ -36,7 +35,6 @@ namespace Jono
 			if (Input.GetMouseButtonUp(0))
 			{
 				ReleaseJump();
-				Debug.Log("Mouse Up");
 			}
 		}
 
@@ -55,7 +53,6 @@ namespace Jono
 		void ReleaseJump()
 		{			
 			chargingJump = false;
-			Debug.Log("The jump force is " + jumpForce);
 			//check the direction of the jump
 			Vector3 directionCalc = cam.ScreenToWorldPoint(mousePos) - transform.position;
 			//add the jump force to the direction of the jump

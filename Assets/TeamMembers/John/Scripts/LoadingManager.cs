@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using Unity.VisualScripting;
 
 public class LoadingManager : MonoBehaviour
 {
@@ -14,25 +15,22 @@ public class LoadingManager : MonoBehaviour
 	public List<string> playableLevels;
 	public int completedLevels;
 
+	private void OnEnable()
+	{
+		Goal.LevelCompleteEvent += NextLevel;
+	}
 
+	private void OnDisable()
+	{
+		Goal.LevelCompleteEvent -= NextLevel;
+	}
 
-    //Updated to use events
-    //TODO make sure this works later
-    private void OnEnable()
-    {
-		//EventManager.PostLevelEndEvent += NextLevel;
-    }
-
-    private void OnDisable()
-    {
-        //EventManager.PostLevelEndEvent -= NextLevel;
-    }
-
-    void Awake()
+	void Awake()
 	{
 		completedLevels = 0;
 		DontDestroyOnLoad(this.gameObject);
 	}
+
 	public void StartGame()
 	{
 		completedLevels = 0;
@@ -41,12 +39,19 @@ public class LoadingManager : MonoBehaviour
 
 	public void QuitToMenu()
 	{
-		SceneManager.LoadScene(MainMenuName);		
+		SceneManager.LoadScene(MainMenuName);
 	}
 
 	public void NextLevel()
 	{
 		completedLevels++;
-		SceneManager.LoadScene(playableLevels[completedLevels]);
+		if (completedLevels < playableLevels.Count)
+		{
+			SceneManager.LoadScene(playableLevels[completedLevels]);
+		}
+		else
+		{
+			// All levels completed, do something else here
+		}
 	}
 }
