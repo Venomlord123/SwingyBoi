@@ -25,15 +25,16 @@ public class Goal : MonoBehaviour
 	// Start is called before the first frame update
 	void Awake()
 	{
-		//loader = GameObject.FindGameObjectWithTag("Manager").GetComponent<LoadingManager>().gameObject;
+		loader = GameObject.FindGameObjectWithTag("Manager").GetComponent<LoadingManager>().gameObject;
 	}
 
 	void CompleteLevel()
 	{
 		LevelCompleteEvent?.Invoke();
+		Debug.Log("Load Event Invoked");
 	}
 
-	private void OnTriggerEnter(Collider collision)
+	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.CompareTag("Player"))
 		{

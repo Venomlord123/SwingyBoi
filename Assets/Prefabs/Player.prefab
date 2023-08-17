@@ -247,7 +247,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mousePos: {x: 0, y: 0, z: 0}
-  cam: {fileID: 2809577924292113164}
   currentJumpForce: 0
   maxJump: 25
   jumpTime: 5.5
@@ -348,7 +347,7 @@ GameObject:
   - component: {fileID: 2809577924822278689}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
