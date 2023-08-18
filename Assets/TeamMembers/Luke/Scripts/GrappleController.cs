@@ -25,9 +25,10 @@ namespace Luke
         [Header ("REFRENCES")]
         [Tooltip("The Layer at which the tongue is able to grapple")]
         public LayerMask grappleableLayer;
+        public RaycastHit2D hit;
 
         //In code handeling variables only
-        private Vector2 grapplePoint;
+        public Vector2 grapplePoint;
         private Vector2 fixedMousePos;
         private Vector2 currentMousePos;
         private Vector2 onClickMousePos;
@@ -90,7 +91,7 @@ namespace Luke
         {
             //Need to save this position for Swing() and use for visual representation
             fixedMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, fixedMousePos - (Vector2)transform.position, maxGrappleDistance, grappleableLayer);
+            hit = Physics2D.Raycast(transform.position, fixedMousePos - (Vector2)transform.position, maxGrappleDistance, grappleableLayer);
 
             if (hit.collider != null)
             {
