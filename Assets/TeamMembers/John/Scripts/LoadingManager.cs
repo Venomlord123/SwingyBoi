@@ -15,7 +15,7 @@ public class LoadingManager : MonoBehaviour
 	public List<string> playableLevels;
 	public int completedLevels;
 
-	private void OnEnable()
+	/*private void OnEnable()
 	{
 		Goal.LevelCompleteEvent += NextLevel;
 	}
@@ -23,7 +23,7 @@ public class LoadingManager : MonoBehaviour
 	private void OnDisable()
 	{
 		Goal.LevelCompleteEvent -= NextLevel;
-	}
+	}*/
 
 	void Awake()
 	{
