@@ -1,0 +1,76 @@
+{
+  "confirmDeletion": true,
+  "showAddCommand": false,
+  "debug": false,
+  "editorMenu": [],
+  "fileMenu": [
+    {
+      "id": "obsidian-kanban:toggle-kanban-view",
+      "icon": "trello",
+      "name": "Return to Kanban mode",
+      "mode": "any"
+    }
+  ],
+  "leftRibbon": [
+    {
+      "id": "cmdr:macro-0",
+      "icon": "box",
+      "name": "Show/Hide Unity Files",
+      "mode": "any"
+    },
+    {
+      "id": "templater-obsidian:create-new-note-from-template",
+      "icon": "file-plus-2",
+      "name": "Create note from template",
+      "mode": "any"
+    },
+    {
+      "id": "obsidian-projects:show:ffe6ec93-e5ca-4c88-a952-2f0e6bbadcba:af6b2733-4289-4586-90a6-2dce76493deb",
+      "icon": "map",
+      "name": "Project: Level Design",
+      "mode": "any"
+    }
+  ],
+  "rightRibbon": [],
+  "titleBar": [],
+  "statusBar": [],
+  "pageHeader": [],
+  "macros": [
+    {
+      "macro": [
+        {
+          "action": 0,
+          "commandId": "OA-file-hider:oa-fh-toggle-visibility"
+        }
+      ],
+      "name": "Show/Hide Unity Files",
+      "icon": "eye",
+      "startup": false
+    }
+  ],
+  "explorer": [],
+  "hide": {
+    "statusbar": [
+      "custom-sort"
+    ],
+    "leftRibbon": [
+      "Open quick switcher",
+      "Open command palette",
+      "Advanced Tables Toolbar",
+      "Create new drawing",
+      "Create new loom",
+      "Toggle custom sorting"
+    ]
+  },
+  "spacing": "8",
+  "advancedToolbar": {
+    "rowHeight": 48,
+    "rowCount": 1,
+    "spacing": 0,
+    "buttonWidth": 48,
+    "columnLayout": false,
+    "mappedIcons": [],
+    "tooltips": false,
+    "heightOffset": 0
+  }
+}

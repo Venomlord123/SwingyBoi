@@ -1,0 +1,19 @@
+{
+  "attachmentFolderPath": "Resources/Images",
+  "promptDelete": false,
+  "showUnsupportedFiles": true,
+  "newFileLocation": "current",
+  "newFileFolderPath": "Workspaces/Inbox",
+  "focusNewTab": true,
+  "showLineNumber": false,
+  "rightToLeft": false,
+  "alwaysUpdateLinks": true,
+  "userIgnoreFilters": [
+    "Library/",
+    "Logs/",
+    "Packages/",
+    "ProjectSettings/",
+    "Temp/",
+    "UserSettings/"
+  ]
+}

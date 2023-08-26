@@ -1,0 +1,23 @@
+{
+  "minimal-advanced@@styled-scrollbars": false,
+  "minimal-style@@zoom-off": true,
+  "minimal-mobile@@mobile-toolbar-off": false,
+  "minimal-style@@base@@dark": "#202020",
+  "minimal-style@@bg2@@dark": "#1A1A1A",
+  "minimal-style@@image-muted": 0.85,
+  "minimal-style@@ig-adjust-edit": 1,
+  "minimal-style@@ig-adjust-reading": -0.65,
+  "minimal-style@@active-line-on": false,
+  "minimal-style@@folding-offset": 32,
+  "minimal-style@@minimal-strike-lists": false,
+  "minimal-style@@list-indent": 1.5,
+  "minimal-style@@metadata-heading-off": true,
+  "minimal-style@@metadata-add-property-off": false,
+  "minimal-style@@metadata-icons-off": false,
+  "minimal-style@@metadata-dividers": false,
+  "minimal-style@@sidebar-lines-off": false,
+  "minimal-style@@sidebar-tabs-style": "sidebar-tabs-default",
+  "minimal-style@@ribbon-style": "ribbon-hidden",
+  "minimal-style@@file-header-visibility": "minimal-tab-title-hidden",
+  "minimal-style@@window-title-off": false
+}

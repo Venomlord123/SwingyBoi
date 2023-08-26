@@ -1,0 +1,223 @@
+{
+  "version": 2,
+  "projects": [
+    {
+      "fieldConfig": {
+        "Status": {
+          "options": [
+            "Idea",
+            "Grey Boxing",
+            "Development",
+            "Art Design",
+            "Done"
+          ]
+        },
+        "Image": {
+          "richText": true
+        }
+      },
+      "defaultName": "Level Idea {{date:YYYY-MM-DD}}",
+      "templates": [
+        "Workspaces/Shared/Templates/New Level Template.md"
+      ],
+      "excludedNotes": [],
+      "isDefault": false,
+      "dataSource": {
+        "kind": "folder",
+        "config": {
+          "path": "Docs/Levels",
+          "recursive": false
+        }
+      },
+      "newNotesFolder": "",
+      "views": [
+        {
+          "config": {
+            "coverField": "Image",
+            "includeFields": [
+              "Level Title"
+            ],
+            "fitStyle": "cover"
+          },
+          "filter": {
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": [
+              {
+                "field": "name",
+                "order": "asc",
+                "enabled": true
+              }
+            ]
+          },
+          "name": "Gallery",
+          "id": "af6b2733-4289-4586-90a6-2dce76493deb",
+          "type": "gallery"
+        },
+        {
+          "config": {
+            "priorityField": "weight",
+            "groupByField": "Status",
+            "columns": {
+              "Idea": {
+                "weight": 0
+              },
+              "Grey Boxing": {
+                "weight": 1
+              },
+              "Development": {
+                "weight": 2
+              },
+              "Art Design": {
+                "weight": 3
+              },
+              "Done": {
+                "weight": 4
+              }
+            },
+            "includeFields": [
+              "Level Title"
+            ]
+          },
+          "filter": {
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": []
+          },
+          "name": "Board",
+          "id": "8fd07fff-1988-4dd4-992d-c2f338693f10",
+          "type": "board"
+        },
+        {
+          "config": {
+            "fieldConfig": {
+              "name": {
+                "width": 191
+              },
+              "path": {
+                "hide": true
+              }
+            },
+            "orderFields": [
+              "name",
+              "Level Title",
+              "File",
+              "Image",
+              "Status",
+              "Tags",
+              "Teaches",
+              "Team Members"
+            ]
+          },
+          "filter": {
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": [
+              {
+                "field": "name",
+                "order": "asc",
+                "enabled": true
+              }
+            ]
+          },
+          "name": "Table",
+          "id": "3acad007-8ab3-4fdb-9997-bd1436713c63",
+          "type": "table"
+        }
+      ],
+      "name": "Level Design",
+      "id": "ffe6ec93-e5ca-4c88-a952-2f0e6bbadcba",
+      "path": "Projects - Demo Project"
+    },
+    {
+      "fieldConfig": {
+        "Team members": {},
+        "Team Members": {}
+      },
+      "defaultName": "{{date:YYYY-MM-DD}}",
+      "templates": [
+        "Workspaces/Shared/Templates/Meeting Note Template.md"
+      ],
+      "excludedNotes": [],
+      "isDefault": true,
+      "dataSource": {
+        "kind": "folder",
+        "config": {
+          "path": "Workspaces/Shared/Meeting Notes",
+          "recursive": false
+        }
+      },
+      "newNotesFolder": "",
+      "views": [
+        {
+          "config": {
+            "interval": "month"
+          },
+          "filter": {
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "53ad4c00-30ab-473d-803b-110a250c86e9",
+          "name": "Calendar",
+          "type": "calendar"
+        },
+        {
+          "config": {
+            "fieldConfig": {
+              "name": {
+                "hide": false
+              },
+              "path": {
+                "hide": true
+              }
+            }
+          },
+          "filter": {
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "158b950e-6926-47f6-a0a3-d309cf936dfd",
+          "name": "Table",
+          "type": "table"
+        }
+      ],
+      "id": "e1d9827a-dedb-42aa-a611-ef879b78ee7f",
+      "name": "Team Meetings"
+    }
+  ],
+  "preferences": {
+    "projectSizeLimit": 1000,
+    "frontmatter": {
+      "quoteStrings": "PLAIN"
+    },
+    "commands": [
+      {
+        "project": "ffe6ec93-e5ca-4c88-a952-2f0e6bbadcba",
+        "view": "af6b2733-4289-4586-90a6-2dce76493deb"
+      }
+    ],
+    "linkBehavior": "open-note"
+  }
+}

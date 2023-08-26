@@ -1,0 +1,12 @@
+{
+  "hidden": true,
+  "hiddenList": [
+    "Temp",
+    "UserSettings",
+    "ProjectSettings",
+    "Packages",
+    "Logs",
+    "Library",
+    "Assets"
+  ]
+}

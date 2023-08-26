@@ -1,0 +1,167 @@
+{
+  "main": {
+    "id": "c6b16acd1a2ea3fc",
+    "type": "split",
+    "children": [
+      {
+        "id": "de201a473f849816",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "651a0df2a7a2e619",
+            "type": "leaf",
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "Workspaces/Gabe/Gabe's Board.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d562a8b5d579379d",
+    "type": "split",
+    "children": [
+      {
+        "id": "77e8bf64f913acf6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9f82515e28050e1d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "645cc854b1134358",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          },
+          {
+            "id": "3820d58b573d0b2e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": true,
+                "explainSearch": true,
+                "collapseAll": false,
+                "extraContext": true,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 253.5
+  },
+  "right": {
+    "id": "cfd6206733a146fd",
+    "type": "split",
+    "children": [
+      {
+        "id": "a76764148c77ca70",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f0c567a903b97b09",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Workspaces/Gabe/Gabe's Board.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 260.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "cmdr:Show/Hide Unity Files": false,
+      "cmdr:Create note from template": true,
+      "canvas:Create new canvas": true,
+      "switcher:Open quick switcher": true,
+      "obsidian-projects:Open projects": false,
+      "graph:Open graph view": true,
+      "command-palette:Open command palette": true,
+      "table-editor-obsidian:Advanced Tables Toolbar": true,
+      "obsidian-excalidraw-plugin:Create new drawing": true,
+      "custom-sort:Toggle custom sorting": true,
+      "templater-obsidian:Templater": true,
+      "cmdr:Project: Level Design": false
+    }
+  },
+  "active": "651a0df2a7a2e619",
+  "lastOpenFiles": [
+    "Workspaces/Gabe/Gabe's Canvas.canvas",
+    "Workspaces/Zac/Zach's Canvas.canvas",
+    "Workspaces/Luke/Luke's Canvas.canvas",
+    "Workspaces/John/John's Canvas.canvas",
+    "Docs/Getting Started.md",
+    "Workspaces/Gabe/Gabe's Board.md",
+    "Workspaces/Zac/Zach's Board.md",
+    "Workspaces/John/John's Board.md",
+    "Workspaces/Luke/Luke's Board.md",
+    "Workspaces/Shared/Untitled Kanban.md",
+    "Workspaces/Shared/Tasks.md",
+    "Workspaces/Zac",
+    "Workspaces/Dan.md",
+    "Workspaces/John",
+    "Resources/Drawings/Level 0 2023-08-26.md",
+    "Resources/Images/Getting Started - Unkanbanning.png",
+    "Workspaces/Gabe/Audio Manager basics.md",
+    "Resources/Images/Getting Started - my kanban.png",
+    "Resources/Images/Getting Started - kanbans.png",
+    "Resources/Images/Getting Started - table.png",
+    "Resources/Images/Getting Started - kanban view.png",
+    "Resources/Images/Getting Started - gallery.png",
+    "Resources/Images/Getting Started - projects.png",
+    "Resources/Images/Getting Started - projects plugin.png",
+    "Docs/Boards/Stuff from Miro.canvas",
+    "Resources/Sortspec.md",
+    "Workspaces/Shared/Meeting Notes/2023-08-25.md",
+    "Resources/Images/Getting Started carried away.png",
+    "Docs/Boards/Untitled.md",
+    "Resources/Images/Getting Started - new pane.png",
+    "Docs/Untitled.md",
+    "Workspaces/Gabe/Obsidian docs setup 1.md",
+    "Workspaces/Sortspec.md",
+    "Workspaces/Luke",
+    "Workspaces/Projects - Demo Project/5 Mistakes I Made When I Started Using Obsidian.md",
+    "Docs/Levels/Level 3.md",
+    "Workspaces/Shared/Templates/New Level Template.md",
+    "Docs/Levels/Level 0.md",
+    "Docs/Levels/Level Idea 2023-08-26.md",
+    "Docs/Levels/Level 1.md",
+    "Docs/Levels/Level 2.md",
+    "Docs/Design/UX/Tutorial stuff.md",
+    "Docs/Design/UX",
+    "orphaned files output.md",
+    "Workspaces/Gabe/Test Sheet.loom",
+    "Workspaces/Gabe/Tasks",
+    "Workspaces/Shared/Templates",
+    "Workspaces/Shared",
+    "Workspaces/Inbox",
+    "Inbox/Manager Interations.canvas",
+    "Library/Search/propertyAliases.db_ff1cd1f576154b4b92b19e419313f52b_temp"
+  ]
+}
