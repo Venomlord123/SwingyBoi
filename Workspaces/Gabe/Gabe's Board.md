@@ -16,12 +16,12 @@ kanban-plugin: basic
 
 ## WIP
 
-- [ ] # Set up docs<br><br>- [x] install key plugins<br>- [x] migrate miro to canvas<br>- [x] create workspaces for team<br>- [x] set up a basic readme<br>- [ ] git push
 
 
 ## Done
 
 **Complete**
+- [x] # Set up docs<br><br>- [x] install key plugins<br>- [x] migrate miro to canvas<br>- [x] create workspaces for team<br>- [x] set up a basic readme<br>- [x] git push
 
 
 ## Won't Do
