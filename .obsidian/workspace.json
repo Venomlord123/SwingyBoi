@@ -11,9 +11,12 @@
             "id": "651a0df2a7a2e619",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "Workspaces/Gabe/Gabe's Board.md"
+                "file": "Workspaces/Shared/Meeting Notes/2023-08-25.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
               }
             }
           }
@@ -83,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Workspaces/Gabe/Gabe's Board.md"
+                "file": "Workspaces/Shared/Meeting Notes/2023-08-25.md"
               }
             }
           }
@@ -112,20 +115,29 @@
   },
   "active": "651a0df2a7a2e619",
   "lastOpenFiles": [
+    "Temp/UnityTempFile-156b447db0f8ef342a731848a3bcd9d3",
+    "Library/Search/propertyAliases.db_d09715c698724a4b92708117a8684246_temp",
+    "Library/Search/propertyAliases.db_6b27bc0817c945928af559c97fb2d966_temp",
+    "Library/Search/propertyDatabase.db_d0b84c16783548fd9af6ca62fc65a5de_temp",
+    "Temp/UnityTempFile-e3408a97dcb851f4985627e48bad9eb8",
+    "Library/Search/propertyDatabase.db_f98839dece2a4089acf77a5b88bd5d70_temp",
+    "Library/Search/propertyDatabase.db_87d59ef44eba410187371534c67f0f9c_temp",
+    "Library/Search/propertyDatabase.db_5ce67299a80f4a6d8658b1e265be3fef_temp",
+    "Library/Search/propertyAliases.db_838192e1e60546a1beca8f70edaeed32_temp",
+    "Library/Search/propertyDatabase.db_d767ac9c00234b37990ac985e8bfa6e5_temp",
+    "Library/Search/propertyDatabase.db_c79bd7f0c630495ba1324aedb1b6bdec_temp",
+    "Docs/Getting Started.md",
+    "Workspaces/Gabe/Gabe's Board.md",
     "Workspaces/Gabe/Gabe's Canvas.canvas",
     "Workspaces/Zac/Zach's Canvas.canvas",
     "Workspaces/Luke/Luke's Canvas.canvas",
     "Workspaces/John/John's Canvas.canvas",
-    "Docs/Getting Started.md",
-    "Workspaces/Gabe/Gabe's Board.md",
     "Workspaces/Zac/Zach's Board.md",
     "Workspaces/John/John's Board.md",
     "Workspaces/Luke/Luke's Board.md",
     "Workspaces/Shared/Untitled Kanban.md",
     "Workspaces/Shared/Tasks.md",
-    "Workspaces/Zac",
     "Workspaces/Dan.md",
-    "Workspaces/John",
     "Resources/Drawings/Level 0 2023-08-26.md",
     "Resources/Images/Getting Started - Unkanbanning.png",
     "Workspaces/Gabe/Audio Manager basics.md",
@@ -145,7 +157,6 @@
     "Docs/Untitled.md",
     "Workspaces/Gabe/Obsidian docs setup 1.md",
     "Workspaces/Sortspec.md",
-    "Workspaces/Luke",
     "Workspaces/Projects - Demo Project/5 Mistakes I Made When I Started Using Obsidian.md",
     "Docs/Levels/Level 3.md",
     "Workspaces/Shared/Templates/New Level Template.md",
@@ -154,14 +165,7 @@
     "Docs/Levels/Level 1.md",
     "Docs/Levels/Level 2.md",
     "Docs/Design/UX/Tutorial stuff.md",
-    "Docs/Design/UX",
     "orphaned files output.md",
-    "Workspaces/Gabe/Test Sheet.loom",
-    "Workspaces/Gabe/Tasks",
-    "Workspaces/Shared/Templates",
-    "Workspaces/Shared",
-    "Workspaces/Inbox",
-    "Inbox/Manager Interations.canvas",
-    "Library/Search/propertyAliases.db_ff1cd1f576154b4b92b19e419313f52b_temp"
+    "Inbox/Manager Interations.canvas"
   ]
 }

@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TeamMembers/Zach/Scenes/Menu Testing.unity
     guid: 0612b20cf1bf0544781da54f3732bf40
+  - enabled: 1
+    path: Assets/TeamMembers/Gabe/Scenes/TestScene 2023-08-30.unity
+    guid: ab5c57250fa1a894eafb2cd23da2c9c7
   m_configObjects: {}
